@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 할 일</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="app-header">
+            <h1>📋 나의 할 일</h1>
+        </header>
+
+        <section class="progress-section">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progress-bar-fill"></div>
+            </div>
+            <p class="progress-text" id="progress-text">0 / 0 완료 (0%)</p>
+        </section>
+
+        <section class="input-section">
+            <input type="text" id="todo-input" placeholder="할 일을 입력하면 자동으로 분류돼요" aria-label="할 일 입력">
+            <select id="category-select" aria-label="카테고리 선택">
+                <option value="auto">자동</option>
+                <option value="work">업무</option>
+                <option value="personal">개인</option>
+                <option value="study">공부</option>
+            </select>
+            <button type="button" id="add-button" aria-label="할 일 추가">
+                <span aria-hidden="true">+</span> 추가
+            </button>
+            <p class="auto-hint" id="auto-hint" hidden></p>
+        </section>
+
+        <section class="filter-section">
+            <button type="button" class="filter-button" data-filter="all">전체</button>
+            <button type="button" class="filter-button" data-filter="work">업무</button>
+            <button type="button" class="filter-button" data-filter="personal">개인</button>
+            <button type="button" class="filter-button" data-filter="study">공부</button>
+        </section>
+
+        <section class="list-section">
+            <ul id="todo-list"></ul>
+        </section>
+    </div>
+
+    <div id="undo-toast" class="undo-toast" hidden role="status" aria-live="polite">
+        <span class="undo-toast-text">삭제되었습니다.</span>
+        <button type="button" id="undo-button" class="undo-toast-button">실행 취소</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
